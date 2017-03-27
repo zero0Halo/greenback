@@ -1,0 +1,1 @@
+var $ = require('./greenback.js');
