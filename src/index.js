@@ -1,16 +1,5 @@
-import iDom from './i-dom.js';
+import Greenback from './greenback.js';
 
-class addToDom {
-  constructor(element, val, parent) {
-    let fragment = document.createDocumentFragment();
-    let el = document.createElement(element);
+let greenback = new Greenback();
 
-    fragment.appendChild(el);
-    el.innerHTML = val;
-    parent.appendChild(fragment);
-  }
-};
-
-let idom = new iDom();
-
-module.exports = idom;
+module.exports = greenback;
