@@ -1,1 +1,2 @@
-var $ = require('./greenback.js');
+var $ = require('greenback');
+

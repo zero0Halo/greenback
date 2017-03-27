@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src --presets babel-preset-es2015 --out-dir dist",
-    "dev": "browserify dist/index.js -o dev/greenback.js"
+    "mydev": "browserify dev/index.js -o dev/index-bundle.js"
   },
   "keywords": [
     "DOM",
@@ -15,7 +15,8 @@
   "author": "zero0halo",
   "license": "MIT",
   "devDependencies": {
-    "babel-cli": "^6.24.0",
-    "babel-preset-es2015": "^6.24.0"
+    "babel-core": "^6.24.0",
+    "babel-preset-es2015": "^6.24.0",
+    "gulp": "^3.9.1"
   }
 }
