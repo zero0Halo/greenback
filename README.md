@@ -58,10 +58,10 @@ You may want to capture an element with two (or more) classes.
 
 Even though ID's are generally frowned upon, Greenback supports capturing them as well.
 
-    let $myId = $('&#35;EXAMPLE_ID');
+    let $myId = $('#EXAMPLE_ID');
 
 
-##Methods
+## Methods
 
 *All methods are chainable.*
 
@@ -71,37 +71,37 @@ Even though ID's are generally frowned upon, Greenback supports capturing them a
 
     let $rows = $('.fake-table').find('.row');
 
-###text(string)
+### text(string)
 
 > Inserts text into the node
 
     let $hello = $('div').text('Hello World!');
 
-###html(string)
+### html(string)
 
 > Inserts html into the node
 
     let $goodbye = $('div').html('<strong>Goodbye!</strong>');
 
-###attr(object)
+### attr(object)
 
 >Assigns attributes to the node. Note that this does not check to see if the attribute(s) is/are valid.
 
     let $link = $('img').attr({ src: 'image.gif, border: 0});
 
-###class(string)
+### class(string)
 
 >Assign a class, or classes, to a node
 
     let $h1 = $('h1').class('large and-in-charge');
 
-###removeClass(string)
+### removeClass(string)
 
 >Removes a given class from a node
 
     $h1.removeClass('large');
 
-###on(string, function)
+### on(string, function)
 
 >Attaches a given event to the node.
 
@@ -111,7 +111,7 @@ Even though ID's are generally frowned upon, Greenback supports capturing them a
 
 *Be careful! Right now Greenback does not have an `off` method. Events attached this way may lead to memory problems if the node the event is attached to is removed from the DOM*
 
-###append(DOM node)
+### append(DOM node)
 
 >Appends the node to the specified parent.
 
@@ -123,6 +123,6 @@ Even though ID's are generally frowned upon, Greenback supports capturing them a
 
 *I realize this is not optimal, sorry. Removing `el` from appending and prepending is on the roadmap.*
 
-###prepend(DOM node)
+### prepend(DOM node)
 
 >As append, except it prepends.
