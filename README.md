@@ -58,7 +58,7 @@ You may want to capture an element with two (or more) classes.
 
 Even though ID's are generally frowned upon, Greenback supports capturing them as well.
 
-    let $myId = $('#EXAMPLE_ID');
+    let $myId = $('&#35;EXAMPLE_ID');
 
 
 ##Methods
