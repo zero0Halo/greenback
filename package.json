@@ -1,6 +1,6 @@
 {
   "name": "greenback",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A light DOM manipulation tool built with jQuery-like methods",
   "main": "./dist/index.js",
   "scripts": {
