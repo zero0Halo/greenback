@@ -2,4 +2,4 @@
 
 import $ from 'greenback';
 
-$('div').text('what the...').append(document.body);
+$('div').text('what the...').appendTo(document.body);

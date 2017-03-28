@@ -7,7 +7,7 @@ import browserify from 'browserify';
 import source from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
 import sequence from 'run-sequence';
-
+import sourcemaps from 'gulp-sourcemaps';
 
 gulp.task('src-babel', () =>{
   const SRC = './src/**/*.js';
@@ -15,9 +15,11 @@ gulp.task('src-babel', () =>{
 
   return gulp.src(SRC)
     .pipe(changed(DEST))
+    .pipe(sourcemaps.init())
     .pipe(babel({
       presets: ['es2015']
     }))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest(DEST));
 });
 
@@ -27,9 +29,11 @@ gulp.task('dev-babel', () => {
   const DEST = './dev/tmp';
 
   return gulp.src(SRC)
+    .pipe(sourcemaps.init())
     .pipe(babel({
       presets: ['es2015']
     }))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest(DEST));
 });
 
@@ -51,15 +55,15 @@ gulp.task('dev-browserify', ['dev-babel'], () => {
 });
 
 
-
-
-
 gulp.task('dev', () =>{
   gulp.watch('./src/**/*', () => {
     sequence('src-babel', 'dev-babel', 'dev-browserify');
   });
   gulp.watch('./dev/*.*', ['dev-browserify']);
-})
+});
+
+
+
 
 
 // var uglify = require('gulp-uglify');
