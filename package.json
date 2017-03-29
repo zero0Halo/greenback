@@ -8,11 +8,19 @@
     "build": "babel src --presets babel-preset-es2015 --out-dir dist",
     "mydev": "browserify dev/index.js -o dev/index-bundle.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zero0Halo/greenback"
+  },
   "keywords": [
     "DOM",
     "jquery"
   ],
   "author": "zero0halo",
+  "contributors": [{
+    "name": "zero0halo",
+    "email": "zero0halo.npm@gmail.com"
+  }],
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.24.0",
