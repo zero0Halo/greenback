@@ -65,7 +65,7 @@ Even though ID's are generally frowned upon, Greenback supports capturing them a
 
 *All methods are chainable.*
 
-###find(string)
+### find(string)
 
 > Finds an element(s) of the given type and returns a new reference to it.
 
@@ -111,26 +111,34 @@ Even though ID's are generally frowned upon, Greenback supports capturing them a
 
 *Be careful! Right now Greenback does not have an `off` method. Events attached this way may lead to memory problems if the node the event is attached to is removed from the DOM*
 
-### append(DOM node or Greenback Object) *updated in 1.2.0*
+### append(DOM node or Greenback Object)
 
 >Appends a node or Greenback object to the invoked Greenback object.
 
     $h1.append( $someStuffAtTheBottom );
 
-### prepend(DOM node or Greenback Object) *updated in 1.2.0*
+*changed in 1.2.0*
+
+### prepend(DOM node or Greenback Object)
 
 >Prepends a node or Greenback object to the invoked Greenback object.
 
     $h1.prepend( $someStuffAtTheTop );
 
-### appendTo(DOM node or Greenback Object) *added in 1.2.0*
+*changed in 1.2.0*
+
+### appendTo(DOM node or Greenback Object)
 
 >Appends the invoked Greenback object to a node or Greenback object.
 
-    $someStuffAtTheBottom.append( $h1 );
+    $someStuffAtTheBottom.appendTo( $h1 );
 
-### prependTo(DOM node or Greenback Object) *added in 1.2.0*
+*added in 1.2.0*
+
+### prependTo(DOM node or Greenback Object)
 
 >Prepends the invoked Greenback object to a node or Greenback object.
 
     $someStuffAtTheTop.prependTo( $h1 );
+
+*added in 1.2.0*
