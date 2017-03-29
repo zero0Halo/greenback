@@ -111,18 +111,26 @@ Even though ID's are generally frowned upon, Greenback supports capturing them a
 
 *Be careful! Right now Greenback does not have an `off` method. Events attached this way may lead to memory problems if the node the event is attached to is removed from the DOM*
 
-### append(DOM node)
+### append(DOM node or Greenback Object) *updated in 1.2.0*
 
->Appends the node to the specified parent.
+>Appends a node or Greenback object to the invoked Greenback object.
 
-    $h1.append(document.body);
+    $h1.append( $someStuffAtTheBottom );
 
->If you want to use a Greenback node for the parent, you can do that as well.
+### prepend(DOM node or Greenback Object) *updated in 1.2.0*
 
-    $h1.append( $example.el );
+>Prepends a node or Greenback object to the invoked Greenback object.
 
-*I realize this is not optimal, sorry. Removing `el` from appending and prepending is on the roadmap.*
+    $h1.prepend( $someStuffAtTheTop );
 
-### prepend(DOM node)
+### appendTo(DOM node or Greenback Object) *added in 1.2.0*
 
->As append, except it prepends.
+>Appends the invoked Greenback object to a node or Greenback object.
+
+    $someStuffAtTheBottom.append( $h1 );
+
+### prependTo(DOM node or Greenback Object) *added in 1.2.0*
+
+>Prepends the invoked Greenback object to a node or Greenback object.
+
+    $someStuffAtTheTop.prependTo( $h1 );

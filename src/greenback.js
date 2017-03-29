@@ -99,16 +99,62 @@ export default class GreenbackConstructor {
         return this;
       };
 
-      append(parent){
+      append(node){
+        node = this._getDomElement(node);
+
+        this.el.appendChild(node);
+
+        return this;
+      };
+
+      prepend(node){
+        let children = this.el.childNodes;
+        let child;
+
+        node = this._getDomElement(node);
+
+        // Need to prepend to an actual element node and not a text node
+        for(let a = 0; a < children.length; a++){
+          child = children[a];
+          if(child.nodeType === 1) {
+            break;
+          }
+        }
+
+        this.el.insertBefore(node, child);
+
+        return this;
+      };
+
+      appendTo(parent){
+        parent = this._getDomElement(parent);
         parent.appendChild(this.fragment);
 
         return this;
       };
 
-      prepend(parent){
-        parent.prependChild(this.fragment);
+      prependTo(parent){
+        let children = parent.childNodes;
+        let child;
+
+        parent = this._getDomElement(parent);
+
+        // Need to prepend to an actual element node and not a text node
+        for(let a = 0; a < children.length; a++){
+          child = children[a];
+          if(child.nodeType === 1) {
+            break;
+          }
+        }
+
+        parent.insertBefore(this.fragment, child);
 
         return this;
+      };
+
+      // Check and see if it's a valid node, otherwise assume it's greenback object and get .el
+      _getDomElement(node){
+        return node.nodeType ? node : node.el;
       };
 
     }
