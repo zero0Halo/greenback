@@ -8,6 +8,8 @@ import source from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
 import sequence from 'run-sequence';
 import sourcemaps from 'gulp-sourcemaps';
+import uglify from 'gulp-uglify';
+import dest from 'gulp-dest';
 
 gulp.task('src-babel', () =>{
   const SRC = './src/**/*.js';
@@ -55,9 +57,18 @@ gulp.task('dev-browserify', ['dev-babel'], () => {
 });
 
 
+gulp.task('dist-uglify', () => {
+  gulp.src('./dist/greenback.js')
+    .pipe(buffer())
+    .pipe(uglify())
+    .pipe(dest('./dist', { ext: '.min.js' }))
+    .pipe(gulp.dest('.'))
+});
+
+
 gulp.task('dev', () =>{
   gulp.watch('./src/**/*', () => {
-    sequence('src-babel', 'dev-babel', 'dev-browserify');
+    sequence('src-babel', 'dev-babel', 'dev-browserify', 'dist-uglify');
   });
   gulp.watch('./dev/*.*', ['dev-browserify']);
 });

@@ -4,7 +4,7 @@
   "description": "A light DOM manipulation tool built with jQuery-like methods",
   "main": "./dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node my-tests.js",
     "build": "babel src --presets babel-preset-es2015 --out-dir dist",
     "mydev": "browserify dev/index.js -o dev/index-bundle.js"
   },
@@ -31,8 +31,13 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-changed": "^2.0.0",
+    "gulp-dest": "^0.2.3",
     "gulp-sourcemaps": "^2.4.1",
+    "gulp-uglify": "^2.1.2",
+    "jsdom": "9.12.0",
+    "jsdom-global": "2.1.1",
     "run-sequence": "^1.2.2",
+    "tape": "^4.6.3",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   }
