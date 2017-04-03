@@ -1,6 +1,13 @@
 # Greenback Changelog
 
 ----
+## v1.2.3
+
+* First implementation of tests, which for now only cover DOM element creation and getting
+
+* minified version of greenback now in the dist folder as greenback.min.js
+
+
 ## v1.2.0
 
 * Fixed a bug where prepend() simply wasn't working
