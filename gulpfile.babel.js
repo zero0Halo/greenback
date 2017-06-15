@@ -1,15 +1,13 @@
-'use strict';
-
-import gulp from 'gulp';
-import babel from 'gulp-babel';
-import changed from 'gulp-changed';
-import browserify from 'browserify';
-import source from 'vinyl-source-stream';
-import buffer from 'vinyl-buffer';
-import sequence from 'run-sequence';
-import sourcemaps from 'gulp-sourcemaps';
-import uglify from 'gulp-uglify';
-import dest from 'gulp-dest';
+let gulp = require('gulp');
+let babel = require('gulp-babel');
+let changed = require('gulp-changed');
+let browserify = require('browserify');
+let source = require('vinyl-source-stream');
+let buffer = require('vinyl-buffer');
+let sequence = require('run-sequence');
+let sourcemaps = require('gulp-sourcemaps');
+let uglify = require('gulp-uglify');
+let dest = require('gulp-dest');
 
 gulp.task('src-babel', () =>{
   const SRC = './src/**/*.js';
@@ -18,9 +16,7 @@ gulp.task('src-babel', () =>{
   return gulp.src(SRC)
     .pipe(changed(DEST))
     .pipe(sourcemaps.init())
-    .pipe(babel({
-      presets: ['es2015']
-    }))
+    .pipe(babel())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(DEST));
 });
@@ -32,9 +28,7 @@ gulp.task('dev-babel', () => {
 
   return gulp.src(SRC)
     .pipe(sourcemaps.init())
-    .pipe(babel({
-      presets: ['es2015']
-    }))
+    .pipe(babel())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(DEST));
 });
@@ -58,7 +52,7 @@ gulp.task('dev-browserify', ['dev-babel'], () => {
 
 
 gulp.task('dist-uglify', () => {
-  gulp.src('./dist/greenback.js')
+  gulp.src('./dist/index.js')
     .pipe(buffer())
     .pipe(uglify())
     .pipe(dest('./dist', { ext: '.min.js' }))

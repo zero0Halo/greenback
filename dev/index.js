@@ -1,7 +1,7 @@
 'use strict';
 
-import $ from 'greenback';
-
+var $ = require('greenback');
+console.log('$', $);
 $('div').text('what the...').appendTo(document.body);
 
 let $test = $('div').class('test').text('I\'m test');
